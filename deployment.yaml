@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-calculator
-        image: calculator-app:latest  # Replace with your actual image details
+        image: teebro/ci-cd-jenkins-argocd:${BUILD_NUMBER}  # Replace with your actual image details
         ports:
         - containerPort: 8000  # Port your Flask app is listening on
 
@@ -29,5 +29,9 @@ spec:
     app: flask-calculator
   ports:
   - protocol: TCP
+    port: 80  # Port to expose on the LoadBalancer
+    targetPort: 8000  # Your Flask app is listening on
+
+protocol: TCP
     port: 80  # Port to expose on the LoadBalancer
     targetPort: 8000  # Your Flask app is listening on
