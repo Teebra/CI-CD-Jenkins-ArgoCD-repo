@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-calculator
-        image: teebro/ci-cd-jenkins-argocd:91
+        image: teebro/ci-cd-jenkins-argocd:92
         ports:
         - containerPort: 8000  # Port your Flask app is listening on
 
