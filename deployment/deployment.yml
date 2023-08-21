@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: flask-calculator-deployment
 spec:
-  replicas: 3  # Number of desired replicas
+  replicas: 3
   selector:
     matchLabels:
       app: flask-calculator
@@ -16,7 +16,7 @@ spec:
       - name: flask-calculator
         image: teebro/ci-cd-jenkins-argocd:31
         ports:
-        - containerPort: 8000  # Port your Flask app is listening on
+        - containerPort: 8000
 
 ---
 apiVersion: v1
@@ -29,9 +29,5 @@ spec:
     app: flask-calculator
   ports:
   - protocol: TCP
-    port: 80  # Port to expose on the LoadBalancer
-    targetPort: 8000  # Your Flask app is listening on
-
-protocol: TCP
-    port: 80  # Port to expose on the LoadBalancer
-    targetPort: 8000  # Your Flask app is listening on
+    port: 80
+    targetPort: 8000
